@@ -9,32 +9,32 @@ import { jobsDescription } from './resources/jobs';
 import { timeOffRequestsDescription } from './resources/time-off-requests';
 
 export class ApideckHris implements INodeType {
-	description: INodeTypeDescription = {
-		displayName: 'Apideck Hris',
-		name: 'N8nDevApideckHris',
-		icon: { light: 'file:./apideck-hris.png', dark: 'file:./apideck-hris.dark.png' },
-		group: ['input'],
-		version: 1,
-		subtitle: '={{\$parameter["operation"] + ": " + \$parameter["resource"]}}',
-		description: 'HRIS API documentation.',
-		defaults: { name: 'Apideck Hris' },
-		usableAsTool: true,
-		inputs: [NodeConnectionTypes.Main],
-		outputs: [NodeConnectionTypes.Main],
-		credentials: [
-			{
-				name: 'N8nDevApideckHrisApi',
-				required: true,
-			},
-		],
-		requestDefaults: {
-			baseURL: '={{\$credentials.url}}',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-		},
-		properties: [
+        description: INodeTypeDescription = {
+                displayName: 'Apideck Hris',
+                name: 'N8nDevApideckHris',
+                icon: { light: 'file:./apideck-hris.png', dark: 'file:./apideck-hris.dark.png' },
+                group: ['input'],
+                version: 1,
+                subtitle: '={{\$parameter["operation"] + ": " + \$parameter["resource"]}}',
+                description: 'HRIS API documentation.',
+                defaults: { name: 'Apideck Hris' },
+                usableAsTool: true,
+                inputs: [NodeConnectionTypes.Main],
+                outputs: [NodeConnectionTypes.Main],
+                credentials: [
+                        {
+                                name: 'N8nDevApideckHrisApi',
+                                required: true,
+                        },
+                ],
+                requestDefaults: {
+                        baseURL: '={{\$credentials.url}}',
+                        headers: {
+                                Accept: 'application/json',
+                                'Content-Type': 'application/json',
+                        },
+                },
+                properties: [
 		{
 			"displayName": "Resource",
 			"name": "resource",
@@ -92,6 +92,6 @@ export class ApideckHris implements INodeType {
 		...employeeSchedulesDescription,
 		...jobsDescription,
 		...timeOffRequestsDescription
-		],
-	};
+                ],
+        };
 }
